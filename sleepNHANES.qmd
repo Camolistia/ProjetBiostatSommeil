@@ -1,0 +1,15 @@
+---
+title: "biostat"
+format: pdf
+editor: visual
+---
+
+## Biostat (changer le nom)
+
+Ce projet s'intéresse à une étude de la qualité de sommeil à partir de différentes informations.
+
+## Importation du dataset
+
+```{r}
+dataSleep = read.csv("SLQ_L.csv", header=TRUE)
+```
