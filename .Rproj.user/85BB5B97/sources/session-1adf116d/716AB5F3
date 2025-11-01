@@ -3,7 +3,7 @@
     "path": "~/Master2/projetBioStat/sleepNHANES.qmd",
     "project_path": "sleepNHANES.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "3313299923",
     "contents": "",
     "dirty": false,
     "created": 1762013013223.0,
@@ -17,16 +17,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "27,0",
+        "cursorPosition": "47,0",
         "scrollLine": "0",
-        "rmdVisualModeLocation": "524:218"
+        "rmdVisualModeLocation": "1357:678"
     },
     "folds": "",
-    "lastKnownWriteTime": 1762015693,
+    "lastKnownWriteTime": 1762016895,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1762015693665,
+    "last_content_update": 1762016895762,
     "read_only": false,
     "read_only_alternatives": []
 }
