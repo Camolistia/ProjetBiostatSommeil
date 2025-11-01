@@ -1,1 +1,5 @@
-"0","dataSleep = read.csv(""SLQ_L.csv"", header=TRUE)"
+"0","dataSleep = read_xpt(""SLQ_L.xpt"")"
+"0","dataDemo  = read_xpt(""DEMO_L.xpt"")"
+"0","dataCigaretteUse = read_xpt(""SMQ_L.xpt"")"
+"0","dataPhysicalActivity = read_xpt(""PAQ_L.xpt"")"
+"0","dataIncome = read_xpt(""INQ_L.xpt"")"

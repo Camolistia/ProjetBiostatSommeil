@@ -11,5 +11,18 @@ Ce projet s'intéresse à une étude de la qualité de sommeil à partir de diff
 ## Importation du dataset
 
 ```{r}
-dataSleep = read.csv("SLQ_L.csv", header=TRUE)
+install.packages("haven")
+library(haven)
 ```
+
+```{r}
+dataSleep = read_xpt("SLQ_L.xpt")
+dataDemo  = read_xpt("DEMO_L.xpt")
+dataCigaretteUse = read_xpt("SMQ_L.xpt")
+dataPhysicalActivity = read_xpt("PAQ_L.xpt")
+dataIncome = read_xpt("INQ_L.xpt")
+```
+
+à faire : merge les dataset, retirer les valeur manquante
+
+## Analyse des données
