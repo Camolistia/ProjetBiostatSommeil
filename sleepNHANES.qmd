@@ -30,7 +30,20 @@ data = merge(data, dataPhysicalActivity, by.x = "SEQN", by.y ="SEQN")
 data = merge(data, dataIncome, by.x = "SEQN", by.y="SEQN")
 ```
 
-## Description des variables : 
+On retire des variables:
+
+-   l'ethnicité, critère avant 2010
+
+-   les informations sur la personnes référente du foyer
+
+```{r}
+library(dplyr)
+data = data[colSums(!is.na(data)) > 0]
+remove_col_name = c('RIDEXMON', 'RIDRETH1', 'DMDHRAGZ', 'DMDHRGND')
+data %>% select(-one_of(remove_col_name))
+```
+
+## Description des variables :
 
 SEQN : numéro d'identification
 
@@ -43,7 +56,7 @@ de meme pour SLQ320, 330 et SLD013 mais pour le weekend
 SMQ020 : a fumé au moins 100 cigarettes dans sa vie\
 SMQ040 : est-ce que vous fumer des cigarettes ?\
 SMD641 : nb de jours parmis les 30 derniers à avoir fumé\
-SMD650 : nb moyen de cigarette par jour \
+SMD650 : nb moyen de cigarette par jour\
 
 ## Analyse des données
 
