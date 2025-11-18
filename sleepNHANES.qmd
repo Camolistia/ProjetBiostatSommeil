@@ -34,7 +34,7 @@ On retire des variables:
 
 -   l'ethnicité, critère avant 2010
 
--   les informations sur la personnes référente du foyer
+-   les informations sur la personne référente du foyer
 
 ```{r}
 library(dplyr)
