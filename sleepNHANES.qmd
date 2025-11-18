@@ -21,6 +21,8 @@ dataDemo  = read_xpt("DEMO_L.xpt")
 dataCigaretteUse = read_xpt("SMQ_L.xpt")
 dataPhysicalActivity = read_xpt("PAQ_L.xpt")
 dataIncome = read_xpt("INQ_L.xpt")
+dataOccupation  =read_xpt("OCQ_L.xpt")
+dataAlcohol = read_xpt("ALQ_L.xpt")
 ```
 
 ```{r}
@@ -28,6 +30,8 @@ data = merge(dataSleep, dataDemo, by.x = "SEQN", by.y = "SEQN")
 data = merge(data, dataCigaretteUse, by.x = "SEQN", by.y = "SEQN")
 data = merge(data, dataPhysicalActivity, by.x = "SEQN", by.y ="SEQN")
 data = merge(data, dataIncome, by.x = "SEQN", by.y="SEQN")
+data = merge(data, dataAlcohol,by.x = "SEQN", by.y="SEQN")
+data = merge(data, dataOccupation,by.x = "SEQN", by.y="SEQN")
 ```
 
 On retire des variables:
@@ -41,6 +45,17 @@ library(dplyr)
 data = data[colSums(!is.na(data)) > 0]
 remove_col_name = c('RIDEXMON', 'RIDRETH1', 'DMDHRAGZ', 'DMDHRGND')
 data %>% select(-one_of(remove_col_name))
+
+keepOnlyName = c('SEQN', 'SLD012','RIAGENDR', 'RIDAGEYR', 'INDFMMPI',  'PAD790Q', 'OCQ180', 'ALQ121')
+data = select(data, keepOnlyName)
+data = na.omit(data)
+data = data[data$ALQ121<10 & data$PAD790Q<10 & data$OCQ180<81,]
+mod = lm(data$SLD012 ~ data$RIAGENDR + data$RIDAGEYR + data$INDFMMPI + data$PAD790Q + data$OCQ180 + data$ALQ121, data = data)
+View(mod)
+summary(mod)
+
+
+
 ```
 
 ## Description des variables :
@@ -61,3 +76,14 @@ SMD650 : nb moyen de cigarette par jour\
 ## Analyse des données
 
 à relfechir :quelles variables precisement on garde ?
+
+```{r}
+keepOnlyName = c('SEQN', 'SLD012','RIAGENDR', 'RIDAGEYR', 'INDFMMPI',  'PAD790Q', 'OCQ180', 'ALQ121')
+data = select(data, keepOnlyName)
+data = na.omit(data)
+data = data[data$ALQ121<10 & data$PAD790Q<10 & data$OCQ180<81,]
+mod = lm(data$SLD012 ~ data$RIAGENDR + data$RIDAGEYR + data$INDFMMPI + data$PAD790Q + data$OCQ180 + data$ALQ121, data = data)
+mod = lm(data$SLD012 ~ data$RIAGENDR + data$RIDAGEYR + data$INDFMMPI + data$PAD790Q + data$OCQ180 + data$ALQ121, data = data)
+summary(mod)
+plot(data$OCQ180, data$SLD012 )
+```

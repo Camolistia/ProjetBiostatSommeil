@@ -2,3 +2,5 @@
 "0","data = merge(data, dataCigaretteUse, by.x = ""SEQN"", by.y = ""SEQN"")"
 "0","data = merge(data, dataPhysicalActivity, by.x = ""SEQN"", by.y =""SEQN"")"
 "0","data = merge(data, dataIncome, by.x = ""SEQN"", by.y=""SEQN"")"
+"0","data = merge(data, dataAlcohol,by.x = ""SEQN"", by.y=""SEQN"")"
+"0","data = merge(data, dataOccupation,by.x = ""SEQN"", by.y=""SEQN"")"
